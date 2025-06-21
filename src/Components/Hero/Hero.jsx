@@ -4,7 +4,7 @@ const Hero = () => {
   return (
     <section
       className="relative bg-cover bg-center bg-no-repeat py-26 sm:py-32 flex items-center justify-center text-white px-4"
-      style={{ backgroundImage: "url('/oficina3.jpg')" }} // Asegúrate de colocar esta imagen en /public/oficina.jpg
+      style={{ backgroundImage: "url('/oficina3.webp')" }} // Asegúrate de colocar esta imagen en /public/oficina.jpg
     >
       {/* Overlay oscuro */}
       <div className="absolute inset-0 bg-black/60 z-0"></div>

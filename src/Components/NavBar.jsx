@@ -14,7 +14,7 @@ const NavBar = () => {
                 <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center">
                     <div className="w-full flex justify-between items-center">
                         <div className="text-black font-bold text-3xl hover:text-orange-600 hover:cursor-pointer">
-                            <img className="w-36" src="./LR-LOGO.png" alt="Logo del estudio md:flex-row" />
+                            <img className="w-28" src="./LR-LOGO.png" alt="Logo del estudio md:flex-row" />
                         </div>
                         {/* Hamburger menu for small screens */}
                         <div className="lg:hidden">
