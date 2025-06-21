@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+@import '../src/Components/Hero/index.css';
+
+@import '../src/Components/Servicios/index.css';
+
