@@ -7,7 +7,7 @@ const Button = () => {
             target="_blank" 
             rel="noopener noreferrer" 
             className="flex items-center justify-center w-11 h-11 transition-colors duration-300 rounded-full">
-                <FontAwesomeIcon icon={faWhatsapp} beat size="2x" className="text-white" />
+                <FontAwesomeIcon icon={faWhatsapp} size="2x" className="text-white" />
             </a>
         
     </div>

@@ -14,7 +14,7 @@ const NavBar = () => {
                 <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center">
                     <div className="w-full flex justify-between items-center">
                         <div className="text-black font-bold text-3xl hover:text-orange-600 hover:cursor-pointer">
-                            <img className="w-28" src="./LR-LOGO.png" alt="Logo del estudio md:flex-row" />
+                            <img className="w-28 ml-10" src="./LR-LOGO.png" alt="Logo del estudio md:flex-row" />
                         </div>
                         {/* Hamburger menu for small screens */}
                         <div className="lg:hidden">
@@ -30,7 +30,9 @@ const NavBar = () => {
                         <a href="/" className="text-black px-4 py-2 font-semibold hover:text-red-500">Home</a>
                         <a href="#red" className="text-black px-4 py-2 font-semibold hover:text-red-500">Red SMS</a>
                         {/* <a href="/" className="text-black px-4 py-2 font-semibold hover:text-red-500">Nosotros</a> */}
+                        <a href="/#nosotros" className="text-black px-4 py-2 font-semibold hover:text-red-500">Nosotros</a>
                         <a href="/#contacto" className="text-black px-4 py-2 font-semibold hover:text-red-500">Contacto</a>
+
                     </div>
                 </div>
             </nav>

@@ -1,7 +1,7 @@
 
 const Footer = () => {
   return (
-    <footer className="mt-auto w-full max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 mx-auto text-white-200 bg-neutral-900">
+    <footer className="mt-auto w-full py-10 px-4 sm:px-6 lg:px-8 mx-auto text-white-200 bg-neutral-900">
       <div className="text-center">
         <div className="flex justify-center items-center mb-4">
           <img className="w-150" src="./logo-pie02.png" alt="Logo del footer" />
