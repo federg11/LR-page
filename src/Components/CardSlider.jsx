@@ -38,9 +38,9 @@ const CardSlider = () => {
   };
 
   return (
-    <div id='nosotros' className="w-full max-w-7xl mx-auto px-4 py-18 bg-gray-10">
+    <div id='nosotros' className="w-full px-2 py-8 bg-gray-10">
         <div><h1 className='text-center text-3xl font-bold py-10'>Nuestro Equipo</h1></div>
-      <Slider {...settings}>
+      <Slider {...settings} className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
         {cardsData.map(card => (
           <div key={card.id} className="px-2 cursor-pointer"> {/* Agrega padding horizontal para espacio entre cards */}
             <Card imageUrl={card.imageUrl} subtitle={card.subtitle} />
