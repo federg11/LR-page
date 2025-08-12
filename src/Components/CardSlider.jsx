@@ -1,13 +1,14 @@
-import Slider from 'react-slick';
-import Card from './Card'; // Asegúrate de que la ruta sea correcta
+import Slider from "react-slick";
+import Card from "./Card";
 
-// Datos de ejemplo para las cards
+
 const cardsData = [
   { id: 1, imageUrl: '/olr-cp.webp', subtitle: 'C.P.N López Ríos, Osvaldo' },
   { id: 2, imageUrl: '/olr-cp.webp', subtitle: 'CPN, López Ríos, Franco' },
   { id: 3, imageUrl: '/olr-cp.webp', subtitle: 'Dr. López Ríos, Héctor Osvaldo' },
   { id: 4, imageUrl: '/olr-cp.webp', subtitle: 'CPN Gómez, Javier' }
 ];
+
 
 const CardSlider = () => {
   const settings = {

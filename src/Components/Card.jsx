@@ -1,4 +1,4 @@
-import React from 'react';
+import CardSlider from './CardSlider';
 
 const Card = ({ imageUrl, subtitle }) => {
   return (

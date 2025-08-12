@@ -10,7 +10,7 @@ const NavBar = () => {
     return (
         <div>
             {/* Navbar */}
-            <nav className="bg-white p-2 fixed top-0 left-0 w-full z-50 shadow-lg">
+            <nav className="mx-auto bg-white p-2 fixed top-0 left-0 w-full z-50 shadow-lg">
                 <div className="container mx-auto flex flex-col lg:flex-row justify-between items-center">
                     <div className="w-full flex justify-between items-center">
                         <div className="text-black font-bold text-3xl hover:text-orange-600 hover:cursor-pointer">
