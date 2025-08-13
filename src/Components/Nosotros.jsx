@@ -47,12 +47,12 @@ const Nosostros = () => {
                 }}
             >
                 {cards.map((card) => (
-                    <SwiperSlide key={card.id}>
+                    <SwiperSlide key={card.title}>
                         <a href="#" className="block">
                             <img
                                 alt={card.title}
                                 src={card.image}
-                                className="mx-auto h-64 w-64 object-contain sm:h-80 lg:h-96 rounded-2xl"
+                                className="mx-auto w-full max-w-[16rem] h-auto object-contain sm:max-w-[20rem] lg:max-w-[24rem] rounded-2xl"
                             />
 
                             <h3 className="mt-4 text-lg font-bold text-gray-900 sm:text-xl text-center">{card.title}</h3>

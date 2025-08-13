@@ -32,7 +32,9 @@ const Services = () => {
       </div>
       <div className="flex justify-center mt-8 mb-8">
         <figure>
-          <a href="https://www.sms.com.ar/" target="_blank" className="cursor-pointer"><img src="./sms-latino.png" alt="Logo SMS Latinoamérica" /></a>
+          <a href="https://www.sms.com.ar/" target="_blank" className="cursor-pointer">
+            <img className="max-w-[220px] w-full h-auto" src="/sms-latino.png" alt="Logo SMS Latinoamérica" />
+          </a>
         </figure>
       </div>
       {/* <div className="grid md:grid-cols-3 gap-8">

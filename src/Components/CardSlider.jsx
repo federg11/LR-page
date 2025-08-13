@@ -21,18 +21,34 @@ const CardSlider = () => {
     autoplaySpeed: 3000,
     responsive: [
       {
-        breakpoint: 1024, // Pantallas de laptops y grandes
+        breakpoint: 1280, // <= 1280px
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        }
+      },
+      {
+        breakpoint: 1024, // <= 1024px
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
         }
       },
       {
-        breakpoint: 768, // Pantallas de tablets
+        breakpoint: 768, // <= 768px (tablets)
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
           dots: false, // Desactiva los puntos en pantallas pequeñas
+        }
+      },
+      {
+        breakpoint: 640, // <= 640px (móviles)
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: true,
+          arrows: false,
         }
       },
     ]
@@ -41,9 +57,9 @@ const CardSlider = () => {
   return (
     <div id='nosotros' className="w-full px-2 py-8 bg-gray-10">
         <div><h1 className='text-center text-3xl font-bold py-10'>Nuestro Equipo</h1></div>
-      <Slider {...settings} className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+      <Slider {...settings} className=''>
         {cardsData.map(card => (
-          <div key={card.id} className="px-2 cursor-pointer"> {/* Agrega padding horizontal para espacio entre cards */}
+          <div key={card.id} className="px-0 sm:px-2 md:px-3 lg:px-4 cursor-pointer">
             <Card imageUrl={card.imageUrl} subtitle={card.subtitle} />
           </div>
         ))}

@@ -4,7 +4,7 @@ const Footer = () => {
     <footer className="mt-auto w-full py-10 px-4 sm:px-6 lg:px-8 mx-auto text-white-200 bg-neutral-900">
       <div className="text-center">
         <div className="flex justify-center items-center mb-4">
-          <img className="w-150" src="./logo-pie02.png" alt="Logo del footer" />
+          <img className="w-[150px] max-w-full h-auto" src="/logo-pie02.png" alt="Logo del footer" />
           {/* <a className="flex-none text-xl font-semibold text-black dark:text-white" href="#" aria-label="Brand">Brand</a> */}
         </div>
 
