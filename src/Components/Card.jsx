@@ -1,18 +1,43 @@
-import CardSlider from './CardSlider';
+import CardSlider from "./CardSlider";
 
-const Card = ({ imageUrl, subtitle }) => {
+
+const demoItems = [
+  {
+    image: '/olr-cp.webp',
+    subtitle: 'CPN López Ríos, Osvaldo',
+    alt: 'Imagen del contador olr',
+  },
+  {
+    image: '/olr-cp.webp',
+    subtitle: 'CPN López Ríos, Franco',
+    alt: 'Taza de café y laptop',
+  },
+  {
+    image: '/olr-cp.webp',
+    subtitle: 'CPN Gómez, Javier',
+    alt: 'Ciudad con bokeh',
+  },
+  {
+    image: '/olr-cp.webp',
+    subtitle: 'CPN Gálvez, Federico',
+    alt: 'Árboles con neblina',
+  },
+  {
+    image: '/olr-cp.webp',
+    subtitle: 'Dr López Ríos, Osvaldo',
+    alt: 'Playa con sol bajo',
+  },
+]
+
+const Card = () => {
   return (
-      <>
-      <div 
-      className="relative mx-auto w-full max-w-full h-80 sm:max-w-[16rem] sm:h-80 md:max-w-[18rem] md:h-80 lg:max-w-[24rem] lg:h-96 bg-cover bg-center rounded-lg shadow-2xl overflow-hidden flex"
-      style={{ backgroundImage: `url(${imageUrl})` }}
-      >
-      <div className="absolute bottom-0 left-0 w-full p-3 sm:p-4 bg-red-800 bg-opacity-60 text-white">
-        <h3 className="text-lg font-bold text-center">{subtitle}</h3>
+    <main id="nosotros" className="min-h-[60vh] sm:min-h-[70vh] md:min-h-[80vh] lg:min-h-dvh bg-red-800 text-neutral-900 dark:text-neutral-100 p-4 sm:p-6">
+      <div className="mx-auto max-w-7xl">
+        <h2 className="text-2xl sm:text-3xl font-semibold mb-4 text-center py-8">Nuestro Equipo</h2>
+        <CardSlider items={demoItems} />
       </div>
-    </div>
-    </>
-  );
-};
+    </main>
+  )
+}
 
-export default Card;
+export default Card
