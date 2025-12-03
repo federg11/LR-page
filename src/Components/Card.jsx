@@ -14,19 +14,34 @@ const demoItems = [
   },
   {
     image: '/olr-cp.webp',
-    subtitle: 'CPN Gómez, Javier',
+    subtitle: 'Dr López Ríos, Osvaldo',
     alt: 'Ciudad con bokeh',
   },
   {
     image: '/olr-cp.webp',
-    subtitle: 'CPN Gálvez, Federico',
+    subtitle: 'CPN Gómez, Javier',
     alt: 'Árboles con neblina',
   },
   {
     image: '/olr-cp.webp',
-    subtitle: 'Dr López Ríos, Osvaldo',
+    subtitle: 'CPN Coronel, Mónica',
     alt: 'Playa con sol bajo',
   },
+  {
+    image: '/olr-cp.webp',
+    subtitle: 'CPN Gálvez, Federico',
+    alt: 'Playa con sol bajo',
+  },
+  {
+    image: '/olr-cp.webp',
+    subtitle: 'CPN Brizuela, Luciana',
+    alt: 'Playa con sol bajo',
+  },
+  {
+    image: '/olr-cp.webp',
+    subtitle: 'CPN Cudugnello, Patricia',
+    alt: 'Playa con sol bajo',
+  }
 ]
 
 const Card = () => {

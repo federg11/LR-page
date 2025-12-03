@@ -29,8 +29,8 @@ const NavBar = () => {
                    <div className={`w-full ${isOpen ? 'flex' : 'hidden'} lg:flex flex-col lg:flex-row lg:space-x-4 lg:mt-0 mt-4 items-center text-xl ${isOpen ? 'justify-center' : ''}`}>
                         <a href="/" className="text-black px-4 py-2 font-semibold hover:text-red-500">Home</a>
                         <a href="#red" className="text-black px-4 py-2 font-semibold hover:text-red-500">Red SMS</a>
-                        {/* <a href="/" className="text-black px-4 py-2 font-semibold hover:text-red-500">Nosotros</a> */}
                         <a href="/#nosotros" className="text-black px-4 py-2 font-semibold hover:text-red-500">Nosotros</a>
+                        <a href="/#novedades" className="text-black px-4 py-2 font-semibold hover:text-red-500">Novedades</a>
                         <a href="/#contacto" className="text-black px-4 py-2 font-semibold hover:text-red-500">Contacto</a>
 
                     </div>

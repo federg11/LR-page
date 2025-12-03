@@ -4,8 +4,8 @@ import Footer from "./Components/Footer"
 import Hero from "./Components/Hero/Hero"
 import NavBar from "./Components/NavBar"
 import Card from "./Components/Card"
-import Nosostros from "./Components/Nosotros"
-import Red from "./Components/Red"
+//import Nosotros from "./Components/Nosotros"
+import RSSReader from "./Components/RSSReader"
 import Services from "./Components/Servicios/Services"
 
 
@@ -17,8 +17,8 @@ function App() {
     <Button />
     <NavBar />
     <Hero />
-    {/* <Red /> */}
     <Services />
+     <RSSReader /> 
     <Card />
     <Contact />
     <Footer />
