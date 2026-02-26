@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Clock, ExternalLink, ChevronLeft, ChevronRight, Newspaper, PauseCircle, PlayCircle } from 'lucide-react';
 
-// Configuración de feeds
+// Configuración de feeds - usando WP REST API
 const RSS_FEEDS = [
   {
     id: 'sms',
     nombre: 'SMS',
-    url: 'https://www.sms.com.ar/feed/',
+    url: 'https://www.sms.com.ar/wp-json/wp/v2/posts?per_page=10',
     color: 'blue'
   }
 ];
@@ -72,20 +72,23 @@ export default function NewsSlider() {
       const allNews = [];
       const promises = RSS_FEEDS.map(async feedConfig => {
         try {
-          const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(feedConfig.url)}`;
-          const res = await fetch(apiUrl);
+          const res = await fetch(feedConfig.url);
           const data = await res.json();
-          if (data.status === 'ok') {
-            return data.items.map(item => ({
+          
+          if (Array.isArray(data)) {
+            return data.map(item => ({
               source: feedConfig.nombre,
-              title: cleanHTML(item.title),
-              description: cleanHTML(item.description || item.content || '').substring(0, 140) + '...',
-              link: item.link,
-              fecha: item.pubDate,
+              title: item.title?.rendered ? cleanHTML(item.title.rendered) : '',
+              description: item.excerpt?.rendered ? cleanHTML(item.excerpt.rendered).substring(0, 140) + '...' : '',
+              link: item.link || '',
+              fecha: item.date || '',
             }));
           }
-        } catch (e) { return []; }
-        return [];
+          return [];
+        } catch (e) { 
+          console.error('Error fetching feed:', e);
+          return []; 
+        }
       });
 
       const results = await Promise.all(promises);
