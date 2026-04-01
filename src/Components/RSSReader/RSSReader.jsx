@@ -119,7 +119,7 @@ export default function NewsSlider() {
 
   // --- RENDER ---
   return (
-    <div id="novedades" className="w-full bg-slate-50 border-y border-slate-200 py-8">
+    <div id="novedades" className="w-full bg-slate-50 border-y border-slate-200 py-8 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4">
         
         {/* Header del Slider */}

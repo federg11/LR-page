@@ -82,7 +82,7 @@ const Contact = () => {
     }`;
 
   return (
-    <section id="contacto" className="py-16 px-6 bg-gray-50">
+    <section id="contacto" className="py-16 px-6 bg-gray-50 scroll-mt-20">
       <div className="max-w-xl mx-auto">
         <h2 className="text-3xl font-bold mb-2 text-center">Contáctanos</h2>
         <p className="text-gray-500 text-center mb-8">
