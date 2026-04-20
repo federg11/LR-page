@@ -13,9 +13,13 @@ function App() {
 
 
    return (
-    <div className="font-sans text-gray-900">
-     <NavBar />
-     <Hero />
+     <div className="font-sans text-gray-900">
+      <NavBar />
+      {/* Spacer para el navbar fijo - misma altura que NavBar */}
+      <div className="h-14 sm:h-16 lg:h-18"></div>
+      {/* Contenido principal */}
+      <main>
+      <Hero />
      <ScrollAnimation animation="fadeInUp" threshold={0.1}>
        <Services />
      </ScrollAnimation>
@@ -25,10 +29,11 @@ function App() {
      <ScrollAnimation animation="fadeInUp" threshold={0.1} delay={0.2}>
        <Card />
      </ScrollAnimation>
-     <ScrollAnimation animation="fadeInUp" threshold={0.1} delay={0.2}>
-       <Contact />
-     </ScrollAnimation>
-     <Footer />
+      <ScrollAnimation animation="fadeInUp" threshold={0.1} delay={0.2}>
+        <Contact />
+      </ScrollAnimation>
+      </main>
+      <Footer />
      <Button />
     </div>
    )
