@@ -25,3 +25,6 @@ dist-ssr
 
 #variables de entorno
 .env
+
+# tooling cache (skill-registry auto-generado, metadata local)
+.atl/
