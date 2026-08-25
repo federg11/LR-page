@@ -1,17 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { Clock, ExternalLink, ChevronLeft, ChevronRight, Newspaper, PauseCircle, PlayCircle } from 'lucide-react';
+import { useState, useEffect, useRef } from "react";
+import {
+  Clock,
+  ExternalLink,
+  ChevronLeft,
+  ChevronRight,
+  Newspaper,
+} from "lucide-react";
+import { fetchNews } from "../../../services/news";
+import { useBreakpoint } from "../../../hooks/useBreakpoint";
 
-// Configuración de feeds - usando WP REST API
-const RSS_FEEDS = [
-  {
-    id: 'sms',
-    nombre: 'SMS',
-    url: 'https://www.sms.com.ar/wp-json/wp/v2/posts?per_page=10',
-    color: 'blue'
-  }
-];
-
-export default function NewsSlider() {
+export default function News() {
   const [noticias, setNoticias] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -19,42 +17,40 @@ export default function NewsSlider() {
   const [isPaused, setIsPaused] = useState(false);
   const timeoutRef = useRef(null);
 
-  // --- LÓGICA DE CARGA DE DATOS (Igual que antes) ---
+  const responsive = useBreakpoint();
   useEffect(() => {
-    fetchNews();
-  }, []);
+    setItemsPorPantalla(responsive);
+  }, [responsive]);
 
-  // --- LÓGICA RESPONSIVA DEL SLIDER ---
   useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 768) setItemsPorPantalla(1);
-      else if (window.innerWidth < 1024) setItemsPorPantalla(2);
-      else setItemsPorPantalla(3);
+    let active = true;
+    setCargando(true);
+    fetchNews().then((news) => {
+      if (!active) return;
+      setNoticias(news);
+      setCargando(false);
+    });
+    return () => {
+      active = false;
     };
-
-    handleResize(); // Inicializar
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // --- LÓGICA DE AUTOPLAY ---
   const resetTimeout = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
   };
 
   useEffect(() => {
     resetTimeout();
-    
+
     if (!cargando && noticias.length > 0 && !isPaused) {
       timeoutRef.current = setTimeout(() => {
         nextSlide();
-      }, 5000); // Cambia cada 5 segundos
+      }, 5000);
     }
 
     return () => resetTimeout();
   }, [currentIndex, noticias.length, isPaused, cargando, itemsPorPantalla]);
 
-  // --- FUNCIONES DE NAVEGACIÓN ---
   const maxIndex = Math.max(0, noticias.length - itemsPorPantalla);
 
   const nextSlide = () => {
@@ -65,64 +61,23 @@ export default function NewsSlider() {
     setCurrentIndex((prev) => (prev === 0 ? maxIndex : prev - 1));
   };
 
-  // --- FETCHING ---
-  const fetchNews = async () => {
-    setCargando(true);
-    try {
-      const allNews = [];
-      const promises = RSS_FEEDS.map(async feedConfig => {
-        try {
-          const res = await fetch(feedConfig.url);
-          const data = await res.json();
-          
-          if (Array.isArray(data)) {
-            return data.map(item => ({
-              source: feedConfig.nombre,
-              title: item.title?.rendered ? cleanHTML(item.title.rendered) : '',
-              description: item.excerpt?.rendered ? cleanHTML(item.excerpt.rendered).substring(0, 140) + '...' : '',
-              link: item.link || '',
-              fecha: item.date || '',
-            }));
-          }
-          return [];
-        } catch (e) { 
-          console.error('Error fetching feed:', e);
-          return []; 
-        }
-      });
-
-      const results = await Promise.all(promises);
-      results.flat().forEach(n => n && allNews.push(n));
-      
-      allNews.sort((a, b) => new Date(b.fecha) - new Date(a.fecha));
-      setNoticias(allNews);
-    } catch (err) {
-      console.error(err);
-    } finally {
-      setCargando(false);
-    }
-  };
-
-  const cleanHTML = (html) => {
-    const tmp = document.createElement('div');
-    tmp.innerHTML = html;
-    return tmp.textContent || tmp.innerText || '';
-  };
-
   const getTimeAgo = (dateString) => {
     const date = new Date(dateString);
     const diff = Math.floor((new Date() - date) / 1000);
-    if (diff < 86400) return 'Hoy';
-    if (diff < 172800) return 'Ayer';
-    return date.toLocaleDateString('es-AR', { day: 'numeric', month: 'short' });
+    if (diff < 86400) return "Hoy";
+    if (diff < 172800) return "Ayer";
+    return date.toLocaleDateString("es-AR", {
+      day: "numeric",
+      month: "short",
+    });
   };
 
-  // --- RENDER ---
   return (
-    <div id="novedades" className="w-full bg-slate-50 border-y border-slate-200 py-8 scroll-mt-20">
+    <div
+      id="novedades"
+      className="w-full bg-slate-50 border-y border-slate-200 py-8 scroll-mt-20"
+    >
       <div className="max-w-7xl mx-auto px-4">
-        
-        {/* Header del Slider */}
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-3">
             <div className="bg-red-600 p-2 rounded-lg shadow-sm">
@@ -133,16 +88,15 @@ export default function NewsSlider() {
               <p className="text-xs text-slate-500">Desliza para ver más</p>
             </div>
           </div>
-          
-          {/* Controles Manuales */}
+
           <div className="flex items-center gap-2">
-            <button 
+            <button
               onClick={prevSlide}
               className="p-2 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-blue-50 hover:text-blue-600 transition-colors shadow-sm"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
-            <button 
+            <button
               onClick={nextSlide}
               className="p-2 rounded-full bg-white border border-slate-200 text-slate-600 hover:bg-blue-50 hover:text-blue-600 transition-colors shadow-sm"
             >
@@ -151,24 +105,18 @@ export default function NewsSlider() {
           </div>
         </div>
 
-        {/* Área del Slider */}
-        <div 
+        <div
           className="relative overflow-hidden group"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Indicador de Pausa (Visual Feedback) */}
-          {/* <div className={`absolute top-2 right-2 z-10 transition-opacity duration-300 ${isPaused ? 'opacity-100' : 'opacity-0'}`}>
-            <span className="bg-black/50 text-white text-xs px-2 py-1 rounded-full flex items-center gap-1 backdrop-blur-sm">
-              <PauseCircle className="w-3 h-3" /> Pausado
-            </span>
-          </div> */}
-
           {cargando ? (
-            // Skeleton Loader (Carrusel)
             <div className="flex gap-4">
               {[...Array(itemsPorPantalla)].map((_, i) => (
-                <div key={i} className="flex-1 bg-white h-64 rounded-xl border border-slate-200 p-5 animate-pulse">
+                <div
+                  key={i}
+                  className="flex-1 bg-white h-64 rounded-xl border border-slate-200 p-5 animate-pulse"
+                >
                   <div className="h-4 w-20 bg-slate-200 rounded mb-4"></div>
                   <div className="h-6 w-full bg-slate-200 rounded mb-2"></div>
                   <div className="h-6 w-2/3 bg-slate-200 rounded mb-4"></div>
@@ -177,13 +125,14 @@ export default function NewsSlider() {
               ))}
             </div>
           ) : (
-            // Track del Slider
-            <div 
+            <div
               className="flex transition-transform duration-500 ease-out"
-              style={{ transform: `translateX(-${currentIndex * (100 / itemsPorPantalla)}%)` }}
+              style={{
+                transform: `translateX(-${currentIndex * (100 / itemsPorPantalla)}%)`,
+              }}
             >
               {noticias.map((item, index) => (
-                <div 
+                <div
                   key={index}
                   className="flex-shrink-0 px-2 box-border"
                   style={{ width: `${100 / itemsPorPantalla}%` }}
@@ -199,57 +148,62 @@ export default function NewsSlider() {
                           {getTimeAgo(item.fecha)}
                         </span>
                       </div>
-                      
+
                       <h3 className="font-bold text-slate-800 mb-2 line-clamp-2 group-hover/card:text-red-700 transition-colors">
-                        <a href={item.link} target="_blank" rel="noopener noreferrer">
+                        <a
+                          href={item.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
                           {item.title}
                         </a>
                       </h3>
-                      
+
                       <p className="text-sm text-slate-600 line-clamp-3 mb-4 leading-relaxed">
                         {item.description}
                       </p>
                     </div>
 
-                    <a 
-                      href={item.link} 
-                      target="_blank" 
+                    <a
+                      href={item.link}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1 text-sm font-semibold text-red-600 hover:text-red-800 mt-auto"
                     >
-                      Leer más <ExternalLink className="w-3 h-3" />
+                      Leer más <ExternalLink className="w-3 inline" />
                     </a>
                   </article>
                 </div>
               ))}
             </div>
           )}
-          
-          {/* Mensaje si no hay noticias */}
+
           {!cargando && noticias.length === 0 && (
             <div className="text-center py-10 bg-white rounded-xl border border-dashed border-slate-300">
-              <p className="text-slate-500">No hay noticias disponibles en este momento.</p>
+              <p className="text-slate-500">
+                No hay noticias disponibles en este momento.
+              </p>
             </div>
           )}
         </div>
 
-        {/* Indicadores (Puntitos) */}
         {!cargando && noticias.length > 0 && (
           <div className="flex justify-center gap-1.5 mt-6">
-            {Array.from({ length: Math.ceil(noticias.length / itemsPorPantalla) }).map((_, idx) => {
-               // Mapeamos los puntos para que coincidan con la paginación aproximada
-               const active = Math.floor(currentIndex / itemsPorPantalla) === idx;
-               return (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentIndex(idx * itemsPorPantalla)}
-                  className={`h-1.5 rounded-full transition-all duration-300 ${
-                    active ? 'w-6 bg-red-600' : 'w-1.5 bg-slate-300 hover:bg-slate-400'
-                  }`}
-                  aria-label={`Ir a grupo ${idx + 1}`}
-                />
-              );
-            })}
+            {Array.from({ length: Math.ceil(noticias.length / itemsPorPantalla) }).map(
+              (_, idx) => {
+                const active = Math.floor(currentIndex / itemsPorPantalla) === idx;
+                return (
+                  <button
+                    key={idx}
+                    onClick={() => setCurrentIndex(idx * itemsPorPantalla)}
+                    className={`h-1.5 rounded-full transition-all duration-300 ${
+                      active ? "w-6 bg-red-600" : "w-1.5 bg-slate-300 hover:bg-slate-400"
+                    }`}
+                    aria-label={`Ir a grupo ${idx + 1}`}
+                  />
+                );
+              }
+            )}
           </div>
         )}
       </div>

@@ -1,58 +1,14 @@
-import {
-  Calculator,
-  FileText,
-  Briefcase,
-  TrendingUp,
-  Shield,
-  Users,
-} from "lucide-react";
-import ScrollAnimation from "../ScrollAnimation/ScrollAnimation";
-
-const services = [
-  {
-    icon: Calculator,
-    title: "Contabilidad General",
-    description:
-      "Registros contables mensuales, estados financieros y balances anuales con estándares de calidad.",
-  },
-  {
-    icon: FileText,
-    title: "Asesoría Tributaria",
-    description:
-      "Planificación fiscal, presentación de impuestos y declaraciones juradas personalizadas.",
-  },
-  {
-    icon: Briefcase,
-    title: "Constitución de Empresas",
-    description:
-      "Formalización, asesoramiento legal y gestión integral para nuevas sociedades.",
-  },
-  {
-    icon: TrendingUp,
-    title: "Auditoría",
-    description:
-      "Auditorías externas e internas para garantizar la transparencia de tu empresa.",
-  },
-  {
-    icon: Shield,
-    title: "Consultoría",
-    description:
-      "Asesoramiento estratégico para optimizar procesos y maximizar resultados.",
-  },
-  {
-    icon: Users,
-    title: "Recursos Humanos",
-    description:
-      "Liquidación de sueldos, manejo de payroll y gestión de personal.",
-  },
-];
+import ScrollAnimation from "../../ui/ScrollAnimation/ScrollAnimation";
+import { services } from "../../../data/services";
 
 const Services = () => {
   return (
-    <section id="red" className="py-20 px-6 bg-gray-50 text-center scroll-mt-20">
+    <section
+      id="red"
+      className="py-20 px-6 bg-gray-50 text-center scroll-mt-20"
+    >
       <h2 className="text-3xl font-bold mb-4">¿Quiénes Somos?</h2>
 
-      {/* Descripción */}
       <div className="container mx-auto max-w-4xl mb-12">
         <p className="mb-4">
           <span className="font-bold">López Ríos - SMS Tucumán</span> es firma
@@ -105,7 +61,6 @@ const Services = () => {
         </div>
       </div>
 
-      {/* Logo SMS */}
       <div className="flex justify-center mb-12">
         <figure>
           <a
@@ -123,22 +78,19 @@ const Services = () => {
         </figure>
       </div>
 
-      {/* Cards de Servicios */}
       <div id="servicios" className="max-w-6xl mx-auto scroll-mt-20">
         <h3 className="text-2xl font-bold mb-2">Nuestros Servicios</h3>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, idx) => (
-            <ScrollAnimation 
+            <ScrollAnimation
               key={idx}
-              animation="fadeInUp" 
-              duration={0.5} 
+              animation="fadeInUp"
+              duration={0.5}
               delay={idx * 0.1}
               threshold={0.2}
             >
-              <div
-                className="group bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 hover:border-red-100 h-full"
-              >
+              <div className="group bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 hover:border-red-100 h-full">
                 <div className="inline-flex items-center justify-center w-14 h-14 bg-red-50 rounded-xl mb-4 group-hover:bg-red-600 transition-colors duration-300">
                   <service.icon className="w-7 h-7 text-red-600 group-hover:text-white transition-colors duration-300" />
                 </div>

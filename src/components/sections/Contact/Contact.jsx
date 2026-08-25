@@ -1,28 +1,25 @@
 import { useState, useRef } from "react";
-import emailjs from "@emailjs/browser";
 import { Send, CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { sendContactMessage } from "../../../lib/contact";
 
 const Contact = () => {
   const form = useRef();
   const [isLoading, setIsLoading] = useState(false);
-  const [status, setStatus] = useState(null); // 'success' | 'error' | null
+  const [status, setStatus] = useState(null);
   const [errors, setErrors] = useState({});
 
   const validateForm = (formData) => {
     const newErrors = {};
 
-    // Nombre: mínimo 2 caracteres
     if (!formData.name || formData.name.trim().length < 2) {
       newErrors.name = "El nombre debe tener al menos 2 caracteres";
     }
 
-    // Email: formato válido
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!formData.email || !emailRegex.test(formData.email)) {
       newErrors.email = "Ingresa un correo electrónico válido";
     }
 
-    // Mensaje: mínimo 10 caracteres
     if (!formData.message || formData.message.trim().length < 10) {
       newErrors.message = "El mensaje debe tener al menos 10 caracteres";
     }
@@ -41,7 +38,6 @@ const Contact = () => {
       message: form.current.message.value,
     };
 
-    // Validar
     if (!validateForm(formData)) {
       return;
     }
@@ -49,24 +45,17 @@ const Contact = () => {
     setIsLoading(true);
 
     try {
-      await emailjs.sendForm(
-        "service_3jbbbpm",
-        "template_x8epb9q",
-        form.current,
-        "aTgJhi2J0VH3rccjG",
-      );
+      await sendContactMessage(form.current);
 
       setStatus("success");
       form.current.reset();
       setErrors({});
 
-      // Limpiar mensaje de éxito después de 5 segundos
       setTimeout(() => setStatus(null), 5000);
     } catch (error) {
       setStatus("error");
       console.error("Error:", error);
 
-      // Limpiar mensaje de error después de 5 segundos
       setTimeout(() => setStatus(null), 5000);
     } finally {
       setIsLoading(false);
@@ -88,7 +77,6 @@ const Contact = () => {
           ¿Tenés alguna consulta? Escribinos y te respondemos a la brevedad.
         </p>
 
-        {/* Status Messages */}
         {status === "success" && (
           <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg flex items-center gap-3 text-green-700">
             <CheckCircle className="w-5 h-5 shrink-0" />
@@ -108,7 +96,6 @@ const Contact = () => {
           onSubmit={sendEmail}
           className="space-y-5 bg-white p-6 rounded-xl shadow-sm"
         >
-          {/* Nombre */}
           <div>
             <label
               htmlFor="name"
@@ -128,7 +115,6 @@ const Contact = () => {
             )}
           </div>
 
-          {/* Email */}
           <div>
             <label
               htmlFor="email"
@@ -148,7 +134,6 @@ const Contact = () => {
             )}
           </div>
 
-          {/* Mensaje */}
           <div>
             <label
               htmlFor="message"
@@ -168,7 +153,6 @@ const Contact = () => {
             )}
           </div>
 
-          {/* Submit Button */}
           <button
             type="submit"
             disabled={isLoading}
