@@ -27,6 +27,6 @@ export async function sendContactMessage(formElement) {
     EMAILJS.serviceId,
     EMAILJS.templateId,
     formElement,
-    EMAILJS.publicKey
+    EMAILJS.publicKey,
   );
 }

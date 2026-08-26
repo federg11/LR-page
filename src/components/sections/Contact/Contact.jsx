@@ -7,6 +7,7 @@ const Contact = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [status, setStatus] = useState(null);
   const [errors, setErrors] = useState({});
+  const [errorDetail, setErrorDetail] = useState("");
 
   const validateForm = (formData) => {
     const newErrors = {};
@@ -54,7 +55,8 @@ const Contact = () => {
       setTimeout(() => setStatus(null), 5000);
     } catch (error) {
       setStatus("error");
-      console.error("Error:", error);
+      console.error("Contact error:", error);
+      setErrorDetail(error?.text || error?.message || "");
 
       setTimeout(() => setStatus(null), 5000);
     } finally {
@@ -87,7 +89,10 @@ const Contact = () => {
         {status === "error" && (
           <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg flex items-center gap-3 text-red-700">
             <AlertCircle className="w-5 h-5 shrink-0" />
-            <p>No se pudo enviar el mensaje. Por favor, intentá nuevamente.</p>
+            <p>
+              No se pudo enviar el mensaje. Por favor, intentá nuevamente.
+              {errorDetail ? ` (${errorDetail})` : ""}
+            </p>
           </div>
         )}
 

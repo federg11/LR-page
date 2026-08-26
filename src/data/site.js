@@ -15,7 +15,7 @@ export const site = {
     instagram: "https://www.instagram.com/lopezriosconsultora/",
     facebook:
       "https://www.facebook.com/people/LOPEZ-RIOS-Consultora/100063482303475/",
-    linkedin: "#",
+    linkedin: "https://ar.linkedin.com/company/lopez-rios-y-asociados",
   },
   logo: {
     nav: "./LR-LOGO.png",
