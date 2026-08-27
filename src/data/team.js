@@ -20,7 +20,7 @@ export const team = [
     alt: "imagen del gerente",
   },
   {
-    image: "/olr-cp.webp",
+    image: "/Monica.jpeg",
     subtitle: "CPN Coronel, Mónica",
     alt: "area de impuestos",
   },
@@ -30,12 +30,12 @@ export const team = [
     alt: "auditoria",
   },
   {
-    image: "/olr-cp.webp",
+    image: "/Luciana.jpeg",
     subtitle: "CPN Brizuela, Luciana",
     alt: "impuestos luciana",
   },
   {
-    image: "/olr-cp.webp",
+    image: "/Patricia.jpeg",
     subtitle: "Cudugnello, Patricia",
     alt: "area laboral",
   },
