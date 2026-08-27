@@ -1,7 +1,7 @@
 export const site = {
   name: "López Ríos & Asociados",
   siteUrl: "https://lopezriosasociados.com",
-  email: "estudio@lopezriosasociados.com",
+  email: "estudio@lopezriossa.com",
   address: "San Martín 890 - 2°piso",
   city: "San Miguel de Tucumán",
   country: "Argentina",
