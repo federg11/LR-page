@@ -90,14 +90,14 @@ const Services = () => {
               delay={idx * 0.1}
               threshold={0.2}
             >
-              <div className="group bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 hover:border-red-100 h-full">
-                <div className="inline-flex items-center justify-center w-14 h-14 bg-red-50 rounded-xl mb-4 group-hover:bg-red-600 transition-colors duration-300">
-                  <service.icon className="w-7 h-7 text-red-600 group-hover:text-white transition-colors duration-300" />
+              <div className="group bg-white p-4 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 hover:border-red-100 h-full flex flex-col">
+                <div className="inline-flex items-center justify-center w-12 h-12 bg-red-50 rounded-xl mb-3 group-hover:bg-red-600 transition-colors duration-300">
+                  <service.icon className="w-6 h-6 text-red-600 group-hover:text-white transition-colors duration-300" />
                 </div>
-                <h4 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-red-600 transition-colors duration-300">
+                <h4 className="text-base font-bold text-gray-900 mb-1.5 group-hover:text-red-600 transition-colors duration-300">
                   {service.title}
                 </h4>
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-gray-600 text-xs leading-relaxed">
                   {service.description}
                 </p>
               </div>
