@@ -30,12 +30,12 @@ export const team = [
     alt: "auditoria",
   },
   {
-    image: "/Luciana.jpeg",
+    image: "/Luciana-2.jpg",
     subtitle: "CPN Brizuela, Luciana",
     alt: "impuestos luciana",
   },
   {
-    image: "/Patricia.jpeg",
+    image: "/Patricia-2.jpg",
     subtitle: "Cudugnello, Patricia",
     alt: "area laboral",
   },
