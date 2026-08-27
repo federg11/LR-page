@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="text-center">
         <div className="flex justify-center items-center mb-4">
           <img
-            className="w-32 sm:w-36 md:w-44 lg:w-52 xl:w-60 h-auto"
+            className="w-40 sm:w-40 md:w-44 lg:w-52 xl:w-60 h-auto brightness-110"
             src={site.logo.footer}
             alt="Logo del footer"
             loading="lazy"
