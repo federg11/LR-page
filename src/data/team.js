@@ -5,17 +5,17 @@ export const team = [
     alt: "Imagen del contador olr",
   },
   {
-    image: "/olr-cp.webp",
+    image: "/Franco-2.jpeg",
     subtitle: "CPN López Ríos, Franco",
     alt: "contador franco lr",
   },
   {
-    image: "/olr-cp.webp",
+    image: "/Mocho-2.jpeg",
     subtitle: "Dr López Ríos, Osvaldo",
     alt: "doctor osvaldo lr",
   },
   {
-    image: "/olr-cp.webp",
+    image: "/Javier-2.jpeg",
     subtitle: "CPN Gómez, Javier",
     alt: "imagen del gerente",
   },
@@ -24,7 +24,11 @@ export const team = [
     subtitle: "CPN Coronel, Mónica",
     alt: "area de impuestos",
   },
-  { image: "/olr-cp.webp", subtitle: "CPN Gálvez, Federico", alt: "auditoria" },
+  {
+    image: "/FedericoGalvez.jpeg",
+    subtitle: "CPN Gálvez, Federico",
+    alt: "auditoria",
+  },
   {
     image: "/olr-cp.webp",
     subtitle: "CPN Brizuela, Luciana",
