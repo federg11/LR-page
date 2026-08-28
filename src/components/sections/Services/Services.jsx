@@ -67,11 +67,11 @@ const Services = () => {
             href="https://www.sms.com.ar/"
             target="_blank"
             rel="noopener noreferrer"
-            className="cursor-pointer inline-block transition-transform duration-300 hover:scale-105"
+              className="cursor-pointer inline-block"
           >
             <img
-              className="max-w-[220px] w-full h-auto"
-              src="/sms-latino.png"
+              className="w-32 sm:w-48 md:w-80 h-auto object-contain mix-blend-multiply"
+              src="/LogoCompleto.jpg"
               alt="Logo SMS Latinoamérica"
             />
           </a>
