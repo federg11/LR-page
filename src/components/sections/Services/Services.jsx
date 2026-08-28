@@ -70,7 +70,7 @@ const Services = () => {
               className="cursor-pointer inline-block"
           >
             <img
-              className="w-44 sm:w-48 md:w-80 h-auto object-contain mix-blend-multiply"
+              className="w-48 sm:w-52 md:w-80 h-auto object-contain mix-blend-multiply"
               src="/LogoCompleto.jpg"
               alt="Logo SMS Latinoamérica"
             />
