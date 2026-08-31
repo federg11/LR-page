@@ -11,7 +11,7 @@ const Services = () => {
 
       <div className="container mx-auto max-w-4xl mb-12">
         <p className="mb-4">
-          <span className="font-bold">López Ríos - SMS Tucumán</span> es firma
+          <span className="font-bold">López Rios - SMS Tucumán</span> es firma
           corresponsal de{" "}
           <a
             href="https://www.sms.com.ar/"
@@ -67,7 +67,7 @@ const Services = () => {
             href="https://www.sms.com.ar/"
             target="_blank"
             rel="noopener noreferrer"
-              className="cursor-pointer inline-block"
+            className="cursor-pointer inline-block"
           >
             <img
               className="w-48 sm:w-52 md:w-80 h-auto object-contain mix-blend-multiply"

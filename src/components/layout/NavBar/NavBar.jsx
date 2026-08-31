@@ -14,7 +14,7 @@ const NavBar = () => {
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "#red", label: "Red SMS" },
+    { href: "#red", label: "Red SMS", externalUrl: "https://www.sms.com.ar/" },
     { href: "#servicios", label: "Servicios" },
     { href: "#novedades", label: "Novedades" },
     { href: "#nosotros", label: "Nosotros" },
@@ -40,6 +40,12 @@ const NavBar = () => {
               <a
                 key={link.href}
                 href={link.href}
+                onClick={
+                  link.externalUrl
+                    ? () => window.open(link.externalUrl, "_blank", "noopener")
+                    : undefined
+                }
+                rel={link.externalUrl ? "noopener noreferrer" : undefined}
                 className="px-2 xl:px-3 py-2 text-sm xl:text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-gray-50 transition-colors duration-200 rounded-md"
               >
                 {link.label}
@@ -98,7 +104,12 @@ const NavBar = () => {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={closeMenu}
+                onClick={(e) => {
+                  closeMenu();
+                  if (link.externalUrl)
+                    window.open(link.externalUrl, "_blank", "noopener");
+                }}
+                rel={link.externalUrl ? "noopener noreferrer" : undefined}
                 className="block w-full max-w-xs px-3 py-2.5 text-base font-medium text-gray-700 hover:text-orange-600 hover:bg-gray-50 rounded-md transition-colors duration-200 text-center"
               >
                 {link.label}

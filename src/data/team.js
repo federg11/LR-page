@@ -1,17 +1,17 @@
 export const team = [
   {
     image: "/olr-cp.webp",
-    subtitle: "CPN López Ríos, Osvaldo",
+    subtitle: "CPN López Rios, Osvaldo",
     alt: "Imagen del contador olr",
   },
   {
     image: "/Franco-2.jpeg",
-    subtitle: "CPN López Ríos, Franco",
+    subtitle: "CPN López Rios, Franco",
     alt: "contador franco lr",
   },
   {
     image: "/Mocho-2.jpeg",
-    subtitle: "Dr López Ríos, Osvaldo",
+    subtitle: "Dr López Rios, Osvaldo",
     alt: "doctor osvaldo lr",
   },
   {

@@ -37,7 +37,7 @@ const Hero = () => {
       <div className="absolute inset-0 z-10 flex items-center justify-center h-full text-center text-white px-4 pointer-events-none">
         <div className="max-w-2xl pointer-events-auto">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            López Ríos & Asociados
+            López Rios & Asociados
           </h1>
           <p className="text-2xl sm:text-lg md:text-xl mb-8 font-semibold">
             Asesoramiento contable, impuestos y auditorías para empresas y
@@ -47,7 +47,7 @@ const Hero = () => {
             href="#contacto"
             className="inline-block bg-black hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-xl transition"
           >
-            Contáctanos
+            Contactanos
           </a>
         </div>
       </div>
