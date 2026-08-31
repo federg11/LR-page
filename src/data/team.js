@@ -5,12 +5,12 @@ export const team = [
     alt: "Imagen del contador olr",
   },
   {
-    image: "/Franco-2.jpeg",
+    image: "/Franco4.jpg",
     subtitle: "CPN López Rios, Franco",
     alt: "contador franco lr",
   },
   {
-    image: "/Mocho-2.jpeg",
+    image: "/Osvaldo2.jpg",
     subtitle: "Dr López Rios, Osvaldo",
     alt: "doctor osvaldo lr",
   },
@@ -25,7 +25,7 @@ export const team = [
     alt: "area de impuestos",
   },
   {
-    image: "/FedericoGalvez.jpeg",
+    image: "/Galvez5.jpg",
     subtitle: "CPN Gálvez, Federico",
     alt: "auditoria",
   },
@@ -35,7 +35,7 @@ export const team = [
     alt: "impuestos luciana",
   },
   {
-    image: "/Patricia-2.jpg",
+    image: "/Patricia.jpeg",
     subtitle: "Cudugnello, Patricia",
     alt: "area laboral",
   },
