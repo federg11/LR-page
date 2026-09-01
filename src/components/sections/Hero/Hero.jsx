@@ -4,10 +4,11 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 
 const backgroundImages = [
-  "/oficina.webp",
-  "/oficina3.webp",
-  "/reunion.webp",
-  "/reunion2.webp",
+  "/Sala1.jpg",
+  "/Entrada.jpg",
+  "/Sala2.jpg",
+  "/Recepcion.jpg",
+  "/Sala3.jpg",
 ];
 
 const Hero = () => {
