@@ -14,7 +14,7 @@ const NavBar = () => {
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "#red", label: "Red SMS", externalUrl: "https://www.sms.com.ar/" },
+    { href: "#red", label: "Red SMS", externalUrl: "https://smslatam.com/" },
     { href: "#servicios", label: "Servicios" },
     { href: "#novedades", label: "Novedades" },
     { href: "#nosotros", label: "Nosotros" },
@@ -104,7 +104,7 @@ const NavBar = () => {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={(e) => {
+                onClick={() => {
                   closeMenu();
                   if (link.externalUrl)
                     window.open(link.externalUrl, "_blank", "noopener");
