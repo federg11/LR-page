@@ -17,6 +17,7 @@ const NavBar = () => {
     { href: "#red", label: "Red SMS", externalUrl: "https://smslatam.com/" },
     { href: "#servicios", label: "Servicios" },
     { href: "#novedades", label: "Novedades" },
+    { href: "#boletin", label: "Boletín Semanal" },
     { href: "#nosotros", label: "Nosotros" },
     { href: "#contacto", label: "Contacto" },
   ];

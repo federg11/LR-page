@@ -5,6 +5,7 @@ import Hero from "./components/sections/Hero/Hero";
 import NavBar from "./components/layout/NavBar/NavBar";
 import Team from "./components/sections/Team/Team";
 import News from "./components/sections/News/News";
+import Publications from "./components/sections/Publications/Publications";
 import Services from "./components/sections/Services/Services";
 import ScrollAnimation from "./components/ui/ScrollAnimation/ScrollAnimation";
 
@@ -22,6 +23,9 @@ function App() {
         </ScrollAnimation>
         <ScrollAnimation animation="fadeInUp" threshold={0.1} delay={0.2}>
           <News />
+        </ScrollAnimation>
+        <ScrollAnimation animation="fadeInUp" threshold={0.1} delay={0.2}>
+          <Publications />
         </ScrollAnimation>
         <ScrollAnimation animation="fadeInUp" threshold={0.1} delay={0.2}>
           <Team />
