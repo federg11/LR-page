@@ -11,7 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // ============================================================
 //  CONFIGURÁ ACÁ tu correo real con dominio de la empresa:
 // ============================================================
-$to = 'contacto@tuempresa.com';
+$to = 'consultora@lopezriossa.com';
 
 $name = trim($_POST['name'] ?? '');
 $email = trim($_POST['email'] ?? '');
