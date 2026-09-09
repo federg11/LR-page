@@ -8,8 +8,13 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+# Build artifacts
 dist
 dist-ssr
+dist-deploy.zip
+
+# Boletín PDFs (se suben directo a cPanel, no al repo)
+public/boletin/
 *.local
 
 # Editor directories and files
