@@ -1,7 +1,15 @@
+import { useState, useEffect } from "react";
 import { FileText, Download, Calendar } from "lucide-react";
-import { publications } from "../../../data/publications";
 
 const Publications = () => {
+  const [publications, setPublications] = useState([]);
+
+  useEffect(() => {
+    fetch("/publications.json")
+      .then((res) => res.json())
+      .then(setPublications)
+      .catch((err) => console.error("Error loading publications:", err));
+  }, []);
   return (
     <section
       id="boletin"
