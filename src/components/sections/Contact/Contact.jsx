@@ -161,7 +161,7 @@ const Contact = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-black text-white py-3 px-6 rounded-lg font-medium hover:bg-red-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors duration-200 flex items-center justify-center gap-2"
+            className="mx-auto bg-black text-white py-3 px-6 rounded-lg font-medium hover:bg-red-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors duration-200 flex items-center justify-center gap-2"
           >
             {isLoading ? (
               <>
