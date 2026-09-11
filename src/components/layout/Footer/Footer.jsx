@@ -68,6 +68,14 @@ const Footer = () => {
             </svg>
           </a>
         </div>
+        <div className="mt-5">
+          <p className="text-gray-500">
+            Development by{" "}
+            <a href="https://federicogalup.netlify.app/" target="_blank">
+              <span className="text-amber-800 font-medium">FRG</span>
+            </a>
+          </p>
+        </div>
       </div>
     </footer>
   );
