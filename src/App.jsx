@@ -8,8 +8,10 @@ import News from "./components/sections/News/News";
 import Publications from "./components/sections/Publications/Publications";
 import Services from "./components/sections/Services/Services";
 import ScrollAnimation from "./components/ui/ScrollAnimation/ScrollAnimation";
+import useScrollToHash from "./hooks/useScrollToHash";
 
 function App() {
+  useScrollToHash();
   return (
     <div className="font-sans text-gray-900">
       <NavBar />
