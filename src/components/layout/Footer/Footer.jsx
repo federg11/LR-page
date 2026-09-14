@@ -71,7 +71,7 @@ const Footer = () => {
         <div className="mt-5">
           <p className="text-gray-500">
             Development by{" "}
-            <a href="https://federicogalup.netlify.app/" target="_blank">
+            <a>
               <span className="text-amber-800 font-medium">FRG</span>
             </a>
           </p>
